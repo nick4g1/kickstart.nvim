@@ -4,6 +4,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.opt.termguicolors = true
 
 -- Prime remaps
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -171,6 +172,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -560,6 +562,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        c = { 'clangd' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
